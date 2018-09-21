@@ -1,1 +1,37 @@
 <head>
+  <title>stopwatch</title>
+</head>
+
+<body>
+  <br> <br>
+  <div id="timer" align="center"></div>
+  
+  <script>
+    var start = Date.now(), display, timer = document.getElementById('timer'), endres;
+    
+    function begin() {
+      display = setInterval(() => {
+        var millis = Date.now() - start;
+        endres = Math.floor(millis/1000)
+        timer.innerHTML = endres;
+      })
+    }
+                                     
+    function end() {
+      clearInterval(display)
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family:"gli";
+      font-src: url("./gli.ttf");
+    }
+    body {
+      color:#03a9f4;
+    }
+    #timer {
+      font-family:"gli";
+      font-size:48px;
+    }
+  </style>
+</body>
