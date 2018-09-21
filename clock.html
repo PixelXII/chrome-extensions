@@ -26,7 +26,7 @@
                h = d.getHours()
                var t = "am"
                
-               t = (h => 12) ? "PM" : "am"
+               t = (h == 12) ? "PM" : "AM"
                
                h = (h > 12) ? h-12 : h;
                
@@ -52,7 +52,7 @@
           }
           
           setInterval(displayTime, 500)
-          setInterval(setDate(), 1000)
+          setInterval(setDate, 1000)
           
           displayTime()
           setDate()
