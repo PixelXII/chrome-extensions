@@ -8,12 +8,15 @@
   
   <script>
     var start = Date.now(), display, timer = document.getElementById('timer'), endres;
+    var h, m, s;
     function begin() {
       start = Date.now()
       display = setInterval(() => {
         var millis = Date.now() - start;
         endres = Math.floor(millis/1000)
         timer.innerHTML = endres + 's';
+        s = (s > 60) ? s % 60 : s;
+        m = (m > 60) ? m % 60 : m;
       })
     }
     function pause() {
