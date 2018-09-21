@@ -18,10 +18,10 @@
         timer.innerHTML = m + 'm ' + endres + 's'
         if(endres % 60 === 0) {
           m++
-          endres = 0;
+          endres = endres/60
         } else if(m % 60 === 0) {
           h++
-          endres = 0;
+          m = m/60
         }
       })
     }
