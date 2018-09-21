@@ -14,7 +14,7 @@
       display = setInterval(() => {
         var millis = Date.now() - start;
         seconds = Math.floor(millis/1000)
-        s = seconds
+        s = s + seconds
         timer.innerHTML = m + 'm ' + s + 's'
         if(s % 60 === 0) {
           m++
