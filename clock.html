@@ -6,9 +6,9 @@
      <div class="display hud" id="disable-hud" onclick="disableHUD()">Disable HUD</div>
      <div class="clock display" id="clock" align="center"></div>
      <div class="date display" id="date" align="center"></div>
-     <div class="alarm display" align="center" id="alrm-btn" style="font-size:20px;" onclick="displayAlarm()">s e t &nbsp a n &nbsp a l a r m</div>
+     <div class="alarm display hud" align="center" id="alrm-btn" style="font-size:20px;" onclick="displayAlarm()">s e t &nbsp a n &nbsp a l a r m</div>
      
-     <div id="alarm-input" align="center" style="display:none;" class="hud">
+     <div id="alarm-input" align="center" style="display:none;">
           <input id="alarm-set" type="text">
           <div class="button" onclick="hideAlarm()">SET</div>
           <div id="error"></div>
@@ -47,7 +47,7 @@
           function disableHUD() {
                var list= document.getElementsByClassName("hud");
                for (var i = 0; i < list.length; i++) {
-                     list[i].style.opacity = 0;
+                     list[i].style.display = 'none';
                }
           }
           
