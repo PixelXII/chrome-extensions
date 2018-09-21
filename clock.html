@@ -3,11 +3,12 @@
 </head>
 
 <body oncontextmenu="return false;">
+     <div class="display hud" id="disable-hud" onclick="disableHUD()">Disable HUD</div>
      <div class="clock display" id="clock" align="center"></div>
      <div class="date display" id="date" align="center"></div>
      <div class="alarm display" align="center" id="alrm-btn" style="font-size:20px;" onclick="displayAlarm()">s e t &nbsp a n &nbsp a l a r m</div>
      
-     <div id="alarm-input" align="center" style="display:none;">
+     <div id="alarm-input" align="center" style="display:none;" class="hud">
           <input id="alarm-set" type="text">
           <div class="button" onclick="hideAlarm()">SET</div>
           <div id="error"></div>
@@ -41,6 +42,13 @@
                var o = d.getMonth()+1;
                var y = d.getFullYear()
                date.innerHTML = o+'/'+a+'/'+y
+          }
+          
+          function disableHUD() {
+               var p = document.getElementsByClassName('hud')
+               p.forEach((e) => {
+                    e.style.opacity = 0
+               });
           }
           
           setInterval(displayTime, 500)
@@ -115,6 +123,13 @@
               text-decoration:underline;
               cursor:pointer;
          }
+          #disable-hud {
+               font-size:24px;
+          }
+          #disable-hud:hover {
+               text-decoration:underline;
+               cursor:pointer;
+          }
          .button {
               border:4px double #388e3c;
               width:100px;
