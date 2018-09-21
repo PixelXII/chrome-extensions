@@ -71,6 +71,8 @@
                     alarmint = setInterval(function() {
                          if(minute == m && hour == h) {
                               definite.play()
+                              hour = null
+                              minute = null
                          }
                     }, 500)
                }
