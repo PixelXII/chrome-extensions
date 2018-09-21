@@ -8,7 +8,6 @@
   
   <script>
     var start = Date.now(), display, timer = document.getElementById('timer'), endres;
-    
     function begin() {
       start = Date.now()
       display = setInterval(() => {
@@ -17,7 +16,16 @@
         timer.innerHTML = endres + 's';
       })
     }
-                                     
+    function pause() {
+      end()
+    }
+    function resume() {
+      display = setInterval(() => {
+        var millis = Date.now() - start;
+        endres = Math.floor(millis/1000)
+        timer.innerHTML = endres + 's';
+      })
+    }
     function end() {
       clearInterval(display)
     }
