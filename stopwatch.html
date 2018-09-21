@@ -20,7 +20,7 @@
         if(s > 60) {
           m++
           s = s-60
-        } else if(m % 60 == 0) {
+        } else if(m > 60) {
           h++
           m = m-60
         }
