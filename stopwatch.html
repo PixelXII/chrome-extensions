@@ -18,12 +18,12 @@
         timer.innerHTML = h + 'h ' + m + 'm ' + s + 's'
         if(s % 60 == 0) {
           m++
-          s = s%60
+          s = s-60
         } else if(m % 60 == 0) {
           h++
-          m = m%60
+          m = m-60
         }
-      })
+      }, 1000)
     }
     function pause() {
       end()
