@@ -67,10 +67,9 @@
                } else {
                     var minute = alarm.split(':')[1]
                     var hour = alarm.split(':')[0]
-                    console.log(minute)
-                    console.log(hour)
+                    console.log(hour+':'+minute)
                     alarmint = setInterval(function() {
-                         if(m === minute && h === hour) {
+                         if(minute == m && hour == h) {
                               definite.play()
                          }
                     }, 500)
