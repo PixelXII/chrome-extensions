@@ -4,7 +4,7 @@
 
 <body>
   <br> <br>
-  <div id="timer" align="center"></div>
+  <div id="timer" align="center">0</div>
   
   <script>
     var start = Date.now(), display, timer = document.getElementById('timer'), endres;
@@ -14,7 +14,7 @@
       display = setInterval(() => {
         var millis = Date.now() - start;
         endres = Math.floor(millis/1000)
-        timer.innerHTML = endres;
+        timer.innerHTML = endres + 's';
       })
     }
                                      
