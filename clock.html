@@ -10,6 +10,7 @@
      <div id="alarm-input" align="center" style="display:none;">
           <input id="alarm-set" type="text">
           <div class="button" onclick="hideAlarm()">SET</div>
+          <div id="error"></div>
      </div>
      <script>
           var clock = document.getElementById('clock')
@@ -58,14 +59,14 @@
                a.value = ''
                if(isNaN(parseFloat(alarm))) {
                     throw new Error('that\'s not a number m8.')
-                    // do a proper error message
+                    
                     return false;
                } else {
                     alarmint = setInterval(function() {
                          if(clock.innerHTML.includes(alarm)) {
                               definite.play()
                          }
-                    }
+                    }, 500)
           }
           
           var alarmint;
@@ -114,6 +115,10 @@
               padding-bottom: 0px;
               cursor:pointer;
          }
+          #error {
+               color:red;
+               font-size:24px;
+          }
          input {
               border:4px solid #03a9f4;
               width:250px;
