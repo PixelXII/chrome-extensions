@@ -61,9 +61,14 @@
                     // do a proper error message
                     return false;
                } else {
-                    console.log(alarm) // default action
-               }
+                    alarmint = setInterval(function() {
+                         if(clock.innerHTML.includes(alarm)) {
+                              definite.play()
+                         }
+                    }
           }
+          
+          var alarmint;
           
           function displayAlarm() {
                document.getElementById('alarm-input').style.display = 'block'
@@ -110,7 +115,7 @@
               cursor:pointer;
          }
          input {
-              border:4px double #03a9f4;
+              border:4px solid #03a9f4;
               width:250px;
               height:35px;
               margin:6px;
