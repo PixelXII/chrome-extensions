@@ -1,0 +1,135 @@
+<head>
+     <title>digital clock</title>
+</head>
+
+<body oncontextmenu="return false;">
+     <div class="clock display" id="clock" align="center"></div>
+     <div class="date display" id="date" align="center"></div>
+     <div class="alarm display" align="center" id="alrm-btn" style="font-size:20px;" onclick="displayAlarm()">s e t &nbsp a n &nbsp a l a r m</div>
+     
+     <div id="alarm-input" align="center" style="display:none;">
+          <input id="alarm-set" type="text">
+          <div class="button" onclick="hideAlarm()">SET</div>
+     </div>
+     <script>
+          var clock = document.getElementById('clock')
+          var date = document.getElementById('date')
+          function displayTime() {
+               let d = new Date()
+               var s = d.getSeconds()
+               var m = d.getMinutes()
+               var h = d.getHours()
+               var t = "am"
+               
+               t = (h => 12) ? "PM" : "am"
+               
+               h = (h > 12) ? h-12 : h;
+               
+               s = (s < 10) ? "0"+s : s;
+               m = (m < 10) ? "0"+m : m;
+               
+               clock.innerHTML = h+':'+m+':'+s+' '+t
+          }
+          
+          function setDate() {
+               let d = new Date()
+               var a = d.getDate()
+               var o = d.getMonth()+1;
+               var y = d.getFullYear()
+               date.innerHTML = o+'/'+a+'/'+y
+          }
+          
+          setInterval(displayTime, 500)
+          setInterval(setDate(), 1000)
+          
+          displayTime()
+          setDate()
+          
+          document.getElementById('alarm-set').addEventListener('keydown', function(e) {
+               if(e.keyCode === 13) {
+                    hideAlarm()
+               }
+          })
+          
+          function setAlarm() {
+               let a = document.getElementById('alarm-set')
+               a.focus()
+               const alarm = a.value
+               a.value = ''
+               if(isNaN(parseFloat(alarm))) {
+                    throw new Error('that\'s not a number m8.')
+                    // do a proper error message
+                    return false;
+               } else {
+                    console.log(alarm) // default action
+               }
+          }
+          
+          function displayAlarm() {
+               document.getElementById('alarm-input').style.display = 'block'
+               document.getElementById('alrm-btn').style.display = 'none'
+          }
+          
+          function hideAlarm() {
+               document.getElementById('alarm-input').style.display = 'none'
+               document.getElementById('alrm-btn').style.display = 'block'
+               setAlarm()
+          }
+     </script>
+     
+     <style>
+         @font-face {
+              font-family: "theboi";
+              src: url("gli.ttf");
+         }
+         
+         body {
+              font-family:"theboi";
+              background-color:black;
+              user-select:none;
+              /*border:2px solid #388e3c;*/
+         }
+         
+         .alarm {
+              margin-top:3em;
+         }
+         #alarm-input {
+              padding-top:100px;
+         }
+         .alarm:hover {
+              text-decoration:underline;
+              cursor:pointer;
+         }
+         .button {
+              border:4px double #388e3c;
+              width:100px;
+              height:25px;
+              color:#03a9f4;
+              padding-top:4px;
+              padding-bottom: 0px;
+              cursor:pointer;
+         }
+         input {
+              border:4px double #03a9f4;
+              width:250px;
+              height:35px;
+              margin:6px;
+              padding: 8px;
+              border-radius:1.5px;
+              color:white;
+              background-color:black;
+         }
+          .display {
+               cursor:default;
+               color: #03a9f4;
+               font-size:54px;
+               font-family: "theboi";
+          }
+          #clock {
+               margin-top:5em;
+          }
+          #date {
+               margin-top:20px;
+          }
+     </style>
+</body>
