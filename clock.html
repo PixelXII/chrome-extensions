@@ -17,11 +17,12 @@
           var date = document.getElementById('date')
           
           var definite = new Audio('/definite.mp3')
+          var m, h;
           function displayTime() {
                let d = new Date()
                var s = d.getSeconds()
-               var m = d.getMinutes()
-               var h = d.getHours()
+               m = d.getMinutes()
+               h = d.getHours()
                var t = "am"
                
                t = (h => 12) ? "PM" : "am"
@@ -61,11 +62,15 @@
                a.value = ''
                if(isNaN(parseFloat(alarm))) {
                     throw new Error('that\'s not a number m8.')
-                    
+                    document.getElementById('error').innerHTML = 'Please enter a time in the <code>hours:minutes</code> format.'
                     return false;
                } else {
+                    var minute = alarm.split(':')[1]
+                    var hour = alarm.split(':')[0]
+                    console.log(minute)
+                    console.log(hour)
                     alarmint = setInterval(function() {
-                         if(clock.innerHTML.includes(alarm)) {
+                         if(m === minute && h === hour) {
                               definite.play()
                          }
                     }, 500)
@@ -118,6 +123,11 @@
               padding-bottom: 0px;
               cursor:pointer;
          }
+          code {
+               background-color:grey;
+               background-opacity:0.7;
+               border-radius:2px;
+          }
           #error {
                color:red;
                font-size:24px;
