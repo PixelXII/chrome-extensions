@@ -1,7 +1,5 @@
-# Chrome Extesions
+# Me making things that don't have any proper use
 
-A public space for weird chrome extensions and web apps
+(clock)[https://pixelxii.github.io/webapps/clock.html]
 
-1: ````New Tab Page Clock````
-
-  A clock for your new tab page.
+(stopwatch)[https://pixelxii.github.io/webapps/stopwatch.html]
