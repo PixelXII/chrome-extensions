@@ -1,0 +1,63 @@
+/* fonts */
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v14/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    padding:0;
+    margin:0;
+    font-family:'Lato';
+    font-size:24px;
+}
+
+input {
+    border:2px solid #42a5f5;
+    border-radius:5px;
+}
+
+button {
+    margin:4px;
+    padding:2px;
+    background:#ffffff;
+    border:1px solid black;
+}
+
+img .square-small {
+    width:60px;
+    height:60px;
+}
+
+.icon {
+     height:100%;
+    width:auto;
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#title-text {
+    padding-left:10px;
+    padding-top:10px;
+    font-size:2em;
+}
+
+#top-bar {
+    border-bottom:3px solid black;
+    height:10%;
+    position:sticky;
+    padding-bottom:20px;
+}
+
+#search-container {
+    margin-top:150px;
+}
+
+#search-results {
+    margin-top:40px;
+    font-size:18px;
+}
